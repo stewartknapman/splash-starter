@@ -4,13 +4,15 @@
   "description": "",
   "main": "./build/index.html",
   "scripts": {
+    "build:scripts": "browserify ./src/js/app.js > ./build/app.js",
     "build:slides": "splash",
     "build:styles": "node-sass ./src/scss/styles.scss | postcss --use autoprefixer -o ./build/styles.css",
-    "build:scripts": "browserify ./src/js/app.js > ./build/app.js",
+    "watch:scripts": "watch 'npm run build:scripts' ./src/js/",
     "watch:slides": "splash watch",
     "watch:styles": "watch 'npm run build:styles' ./src/scss/",
-    "watch:scripts": "watch 'npm run build:scripts' ./src/js/",
-    "watch": "parallelshell 'npm run watch:slides' 'npm run watch:styles' 'npm run watch:scripts'"
+    "watch": "parallelshell 'npm run watch:scripts' 'npm run watch:slides' 'npm run watch:styles'",
+    "sync": "browser-sync start --proxy 'rails-girls-slides.dev' --files './build'",
+    "build": "parallelshell 'npm run watch' 'npm run sync'"
   },
   "author": "Stewart Knapman",
   "license": "ISC",
