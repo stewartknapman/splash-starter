@@ -5,14 +5,19 @@
   "main": "./build/index.html",
   "scripts": {
     "build:slides": "splash",
-    "build:slides-watch": "splash watch",
-    "build:styles": "node-sass ./src/scss/styles.scss | postcss --use autoprefixer -o ./build/styles.css"
+    "build:styles": "node-sass ./src/scss/styles.scss | postcss --use autoprefixer -o ./build/styles.css",
+    "build:scripts": "browserify ./src/js/app.js > ./build/app.js",
+    "watch:slides": "splash watch",
+    "watch:styles": "watch 'npm run build:styles' ./src/scss/",
+    "watch:scripts": "watch 'npm run build:scripts' ./src/js/",
+    "watch": "parallelshell 'npm run watch:slides' 'npm run watch:styles' 'npm run watch:scripts'"
   },
   "author": "Stewart Knapman",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.0.3",
-    "cssmin": "^0.4.3",
+    "browser-sync": "^2.9.11",
+    "browserify": "^11.2.0",
     "inside": "git+https://github.com/stewartknapman/inside.git#v2",
     "node-sass": "^3.3.3",
     "parallelshell": "^2.0.0",
