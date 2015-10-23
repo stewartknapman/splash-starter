@@ -4,8 +4,20 @@
   "description": "",
   "main": "./build/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:slides": "splash",
+    "build:slides-watch": "splash watch",
+    "build:styles": "node-sass ./src/scss/styles.scss | postcss --use autoprefixer -o ./build/styles.css"
   },
   "author": "Stewart Knapman",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.0.3",
+    "cssmin": "^0.4.3",
+    "inside": "git+https://github.com/stewartknapman/inside.git#v2",
+    "node-sass": "^3.3.3",
+    "parallelshell": "^2.0.0",
+    "postcss-cli": "^2.2.0",
+    "splash": "git+https://github.com/stewartknapman/splash.git",
+    "watch": "^0.16.0"
+  }
 }
