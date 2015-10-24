@@ -1,2 +1,7 @@
 @import './base/variables.scss';
 @import '../../node_modules/inside/src/inside.scss';
+@import './layouts/site.scss';
+@import './modules/slider.scss';
+@import './modules/slides.scss';
+@import './modules/slider-controls.scss';
+@import './state/slides.scss';
