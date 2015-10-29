@@ -11,7 +11,7 @@
     "watch:slides": "splash watch",
     "watch:styles": "watch 'npm run build:styles' ./src/scss/",
     "watch": "parallelshell 'npm run watch:scripts' 'npm run watch:slides' 'npm run watch:styles'",
-    "sync": "browser-sync start --proxy 'rails-girls-slides.dev' --files './build'",
+    "sync": "browser-sync start --server './build' --files './build'",
     "build": "parallelshell 'npm run watch' 'npm run sync'"
   },
   "author": "Stewart Knapman",
